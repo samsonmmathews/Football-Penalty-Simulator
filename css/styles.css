@@ -1,0 +1,53 @@
+#gameArea {
+    position: relative;
+    width: 1280px;
+    height: 650px;
+    /* margin: 20px auto; */
+    overflow: hidden;
+    object-fit: scale-down;
+}
+
+#goalpost {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#goalkeeper {
+    position: absolute;
+    width: 65px;
+    bottom: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 1s;
+    z-index: 2;
+}
+
+#football {
+    position: absolute;
+    width: 50px;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+#controls {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 200px;
+    z-index: 4;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: yellowgreen;
+    border: 2px solid black;
+    border-radius: 10px;
+}
