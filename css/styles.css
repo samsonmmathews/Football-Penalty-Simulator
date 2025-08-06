@@ -7,6 +7,16 @@
     object-fit: scale-down;
 }
 
+#title {
+    position: absolute;
+    left: 36%;
+    top: 10px;
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 10px black;
+    z-index: 5;
+}
+
 #goalpost {
     position: absolute;
     width: 100%;
@@ -50,6 +60,21 @@ button {
     background-color: yellowgreen;
     border: 2px solid black;
     border-radius: 10px;
+}
+
+button:hover {
+    background-color: limegreen;
+}
+
+#message {
+    position: absolute;
+    top: 36%;
+    left: 44%;
+    font-size: 3.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px black;
+    display: none;
+    z-index: 5;
 }
 
 @keyframes ballLeft {

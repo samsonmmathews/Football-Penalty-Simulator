@@ -17,19 +17,12 @@ window.onload = function() {
 
         var goalkeeperDive = Math.random() < 0.5 ? "left" : "right";
 
-        goalkeeper.style.transform = 
-        goalkeeperDive === "left" ? "translate(-300px,-20px) rotate(-45deg)" 
-                              : "translate(300px,-20px) rotate(45deg)";
+        // Goalkeeper movement animation
+        goalkeeper.style.transform = goalkeeperDive === "left" ? 
+        "translate(-300px,-20px) rotate(-45deg)" : "translate(300px,-20px) rotate(45deg)";
 
-        // void football.offsetWidth;
-
-        if(direction === "left") 
-        {
-            football.style.animation = "ballLeft 1s forwards";
-        } 
-        else 
-        {
-            football.style.animation = "ballRight 1s forwards";
-        }
+        // Football movement animation
+        football.style.animation = direction === "left" ? 
+        "ballLeft 1s forwards" : "ballRight 1s forwards";
     }
 }
