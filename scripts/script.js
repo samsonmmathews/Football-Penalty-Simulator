@@ -11,7 +11,12 @@ window.onload = function() {
     function shoot(direction) {
         console.log("direction: " + direction);
 
+        // Disables the buttons temporarily
+        leftBtn.disabled = true;
+        rightBtn.disabled = true;
+
         football.style.animation = "";
+        // void football.offsetWidth;
         goalkeeper.style.transition = "transform 1s";
         message.style.display = "none";
 
@@ -24,5 +29,20 @@ window.onload = function() {
         // Football movement animation
         football.style.animation = direction === "left" ? 
         "ballLeft 1s forwards" : "ballRight 1s forwards";
+
+        setTimeout(() => {
+            if(direction === goalkeeperDive)
+            {
+                message.textContent = "SAVED!";
+                message.style.color = "red";
+            } 
+            else 
+            {
+                message.textContent = "GOAL!!!";
+                message.style.color = "yellow";
+            }
+            message.style.display = "block";
+            
+        }, 1000);
     }
-}
+};
