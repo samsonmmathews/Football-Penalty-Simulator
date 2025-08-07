@@ -1,22 +1,26 @@
-window.onload = function() {
+window.onload = function() 
+{
     var football = document.getElementById("football");
     var goalkeeper = document.getElementById("goalkeeper");
     var leftBtn = document.getElementById("leftBtn");
     var rightBtn = document.getElementById("rightBtn");
+    var resetBtn = document.getElementById("resetBtn");
     var message = document.getElementById("message");
 
     leftBtn.addEventListener("click", () => shoot("left"));
     rightBtn.addEventListener("click", () => shoot("right"));
+    resetBtn.addEventListener("click", resetGame);
 
     function shoot(direction) {
         console.log("direction: " + direction);
 
+        
         // Disables the buttons temporarily
         leftBtn.disabled = true;
         rightBtn.disabled = true;
+        resetBtn.disabled = true;
 
         football.style.animation = "";
-        // void football.offsetWidth;
         goalkeeper.style.transition = "transform 1s";
         message.style.display = "none";
 
@@ -35,14 +39,24 @@ window.onload = function() {
             {
                 message.textContent = "SAVED!";
                 message.style.color = "red";
+                resetBtn.disabled = false;
             } 
             else 
             {
                 message.textContent = "GOAL!!!";
                 message.style.color = "yellow";
+                resetBtn.disabled = false;
             }
             message.style.display = "block";
-            
         }, 1000);
+    }
+
+    function resetGame() {
+        console.log("Reset button clicked");
+        football.style.animation = "";
+        goalkeeper.style.transform = "translate(0,0) rotate(0deg)";
+        message.textContent = "";
+        leftBtn.disabled = false;
+        rightBtn.disabled = false;
     }
 };
