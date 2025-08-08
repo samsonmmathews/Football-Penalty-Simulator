@@ -2,7 +2,6 @@
     position: relative;
     width: 1280px;
     height: 650px;
-    /* margin: 20px auto; */
     overflow: hidden;
     object-fit: scale-down;
 }
@@ -29,8 +28,6 @@
     width: 65px;
     bottom: 260px;
     left: 46.5%;
-    /* transform: translateX(-50%);
-    transition: transform 1s; */
     z-index: 2;
 }
 
@@ -39,7 +36,6 @@
     width: 50px;
     bottom: 80px;
     left: 48%;
-    /* transform: translateX(-50%); */
     z-index: 3;
 }
 
@@ -118,4 +114,30 @@ button:hover {
 @keyframes ballRight {
     0% { bottom: 80px; left: 48%; }
     100% { bottom: 420px; left: 76%; }
+}
+
+@keyframes diveLeft {
+    0% { transform: translate(0,0) rotate(0deg); }
+    100% { transform: translate(-300px,-20px) rotate(-45deg); }
+}
+
+@keyframes diveRight {
+    0% { transform: translate(0,0) rotate(0deg); }
+    100% { transform: translate(300px,-20px) rotate(45deg); }
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    60% { transform: scale(1.8); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes goalkeeperReset {
+    0% { }
+    100% { transform: translate(0,0) rotate(0deg); }
+}
+
+@keyframes ballReset {
+    0% { }
+    100% { bottom: 80px; left: 48%; }
 }

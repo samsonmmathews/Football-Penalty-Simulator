@@ -7,6 +7,7 @@ window.onload = function()
     var resetBtn = document.getElementById("resetBtn");
     var message = document.getElementById("message");
 
+    // Function calls on button click
     leftBtn.addEventListener("click", () => shoot("left"));
     rightBtn.addEventListener("click", () => shoot("right"));
     resetBtn.addEventListener("click", resetGame);
@@ -14,48 +15,65 @@ window.onload = function()
     function shoot(direction) {
         console.log("direction: " + direction);
 
-        
-        // Disables the buttons temporarily
+        // Disabling the buttons temporarily
         leftBtn.disabled = true;
         rightBtn.disabled = true;
         resetBtn.disabled = true;
 
+        // Clearing any old animations
         football.style.animation = "";
-        goalkeeper.style.transition = "transform 1s";
+        goalkeeper.style.transition = "";
         message.style.display = "none";
 
+        // Logic to apply random direction to goalkeeper dive direction
         var goalkeeperDive = Math.random() < 0.5 ? "left" : "right";
 
         // Goalkeeper movement animation
-        goalkeeper.style.transform = goalkeeperDive === "left" ? 
-        "translate(-300px,-20px) rotate(-45deg)" : "translate(300px,-20px) rotate(45deg)";
+        if(goalkeeperDive === "left")
+        {
+            goalkeeper.style.animation = "diveLeft 1s forwards";
+        }
+        else
+        {
+            goalkeeper.style.animation = "diveRight 1s forwards";
+        }
 
         // Football movement animation
-        football.style.animation = direction === "left" ? 
-        "ballLeft 1s forwards" : "ballRight 1s forwards";
+        if(direction === "left")
+        {
+            football.style.animation = "ballLeft 1s forwards";
+        }
+        else
+        {
+            football.style.animation = "ballRight 1s forwards";
+        }
 
         setTimeout(() => {
             if(direction === goalkeeperDive)
             {
                 message.textContent = "SAVED!";
                 message.style.color = "red";
-                resetBtn.disabled = false;
             } 
             else 
             {
                 message.textContent = "GOAL!!!";
                 message.style.color = "yellow";
-                resetBtn.disabled = false;
             }
             message.style.display = "block";
+            message.style.animation = "zoomIn 0.5s ease";
+            resetBtn.disabled = false;
         }, 1000);
     }
 
     function resetGame() {
         console.log("Reset button clicked");
-        football.style.animation = "";
-        goalkeeper.style.transform = "translate(0,0) rotate(0deg)";
+
+        football.style.animation = "ballReset 0.5s forwards";
+        goalkeeper.style.animation = "goalkeeperReset 0.5s forwards";
+
         message.textContent = "";
+        message.style.display = "none";
+
         leftBtn.disabled = false;
         rightBtn.disabled = false;
     }
