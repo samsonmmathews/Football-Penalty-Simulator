@@ -3,7 +3,8 @@
     width: 1280px;
     height: 650px;
     overflow: hidden;
-    object-fit: scale-down;
+    margin: 0 auto;
+    transform-origin: top center;
 }
 
 #title {
